@@ -64,65 +64,6 @@ export class AuthService {
     };
   }
 
-  async forgotPassword(forgotPasswordDto: ForgotPasswordDto) {
-    const { email } = forgotPasswordDto;
-    const aluno = await this.alunosRepository.findOne({ where: { email } });
-
-    if (aluno) {
-      const resetToken = crypto.randomBytes(20).toString('hex');
-      const resetPasswordExpires = Date.now() + 30 * 60 * 1000;
-
-      await this.alunosRepository.update(
-        { id: aluno.id },
-        {
-          resetPasswordToken: resetToken,
-          resetPasswordExpires: resetPasswordExpires,
-        },
-      );
-
-      const html = `<p>Você solicitou a recuperação de sua senha. Seu código temporário é: <strong>${resetToken}</strong>. Ele expirará em 30 minutos.</p>`;
-
-      await this.emailService.sendMail(email, 'Recuperação de Senha', html);
-    }
-
-    return {
-      message:
-        'Um e-mail com as instruções de recuperação foi enviado (se o e-mail existir em nosso sistema).',
-    };
-  }
-
-  async resetPassword(resetPasswordDto: ResetPasswordDto) {
-    const { token, newPassword } = resetPasswordDto;
-
-    const aluno = await this.alunosRepository.findOne({
-      where: {
-        resetPasswordToken: token,
-        resetPasswordExpires: MoreThan(Date.now()),
-      },
-    });
-
-    if (!aluno) {
-      throw new BadRequestException(
-        'Código de recuperação inválido ou expirado.',
-      );
-    }
-
-    const passwordHash = await bcrypt.hash(newPassword, 10);
-
-    await this.alunosRepository.update(
-      { id: aluno.id },
-      {
-        passwordHash,
-        resetPasswordToken: undefined,
-        resetPasswordExpires: undefined,
-      },
-    );
-
-    return {
-      message: 'Senha redefinida com sucesso!',
-    };
-  }
-
   async loginEmpresa(loginEmpresaDto: LoginEmpresaDto) {
     const { email, senha } = loginEmpresaDto;
 
@@ -161,13 +102,40 @@ export class AuthService {
     };
   }
 
-  async forgotPasswordEmpresa(forgotPasswordDto: ForgotPasswordDto) {
+  async forgotPassword(forgotPasswordDto: ForgotPasswordDto) {
     const { email } = forgotPasswordDto;
+
+    // Tentar encontrar aluno
+    const aluno = await this.alunosRepository.findOne({ where: { email } });
+
+    if (aluno) {
+      const resetToken = crypto.randomBytes(20).toString('hex');
+      const resetPasswordExpires = new Date(Date.now() + 30 * 60 * 1000); // 30 minutos
+
+      await this.alunosRepository.update(
+        { id: aluno.id },
+        {
+          resetPasswordToken: resetToken,
+          resetPasswordExpires: resetPasswordExpires,
+        },
+      );
+
+      const mailHtml = `<p>Você solicitou a recuperação de sua senha. Seu código temporário é: <strong>${resetToken}</strong>. Ele expirará em 30 minutos.</p>`;
+
+      await this.emailService.sendMail(email, 'Recuperação de Senha', mailHtml);
+
+      return {
+        message:
+          'Um e-mail com as instruções de recuperação foi enviado (se o e-mail existir em nosso sistema).',
+      };
+    }
+
+    // Tentar encontrar empresa
     const empresa = await this.empresasRepository.findOne({ where: { email } });
 
     if (empresa) {
       const resetToken = crypto.randomBytes(20).toString('hex');
-      const resetPasswordExpires = Date.now() + 30 * 60 * 1000;
+      const resetPasswordExpires = new Date(Date.now() + 30 * 60 * 1000); // 30 minutos
 
       await this.empresasRepository.update(
         { id: empresa.id },
@@ -177,46 +145,74 @@ export class AuthService {
         },
       );
 
-      const html = `<p>Você solicitou a recuperação de sua senha. Seu código temporário é: <strong>${resetToken}</strong>. Ele expirará em 30 minutos.</p>`;
+      const mailHtml = `<p>Você solicitou a recuperação de sua senha. Seu código temporário é: <strong>${resetToken}</strong>. Ele expirará em 30 minutos.</p>`;
 
-      await this.emailService.sendMail(email, 'Recuperação de Senha', html);
+      await this.emailService.sendMail(email, 'Recuperação de Senha', mailHtml);
     }
 
+    // Sempre retorna a mesma mensagem por segurança (não revela se email existe)
     return {
       message:
         'Um e-mail com as instruções de recuperação foi enviado (se o e-mail existir em nosso sistema).',
     };
   }
 
-  async resetPasswordEmpresa(resetPasswordDto: ResetPasswordDto) {
+  async resetPassword(resetPasswordDto: ResetPasswordDto) {
     const { token, newPassword } = resetPasswordDto;
 
-    const empresa = await this.empresasRepository.findOne({
+    // Tentar encontrar aluno com token válido
+    const aluno = await this.alunosRepository.findOne({
       where: {
         resetPasswordToken: token,
-        resetPasswordExpires: MoreThan(Date.now()),
+        resetPasswordExpires: MoreThan(new Date()),
       },
     });
 
-    if (!empresa) {
-      throw new BadRequestException(
-        'Código de recuperação inválido ou expirado.',
+    if (aluno) {
+      const passwordHash = await bcrypt.hash(newPassword, 10);
+
+      await this.alunosRepository.update(
+        { id: aluno.id },
+        {
+          passwordHash: passwordHash,
+          resetPasswordToken: undefined,
+          resetPasswordExpires: undefined,
+        },
       );
+
+      return {
+        message: 'Senha redefinida com sucesso!',
+      };
     }
 
-    const passwordHash = await bcrypt.hash(newPassword, 10);
-
-    await this.empresasRepository.update(
-      { id: empresa.id },
-      {
-        passwordHash,
-        resetPasswordToken: undefined,
-        resetPasswordExpires: undefined,
+    // Tentar encontrar empresa com token válido
+    const empresa = await this.empresasRepository.findOne({
+      where: {
+        resetPasswordToken: token,
+        resetPasswordExpires: MoreThan(new Date()),
       },
-    );
+    });
 
-    return {
-      message: 'Senha redefinida com sucesso!',
-    };
+    if (empresa) {
+      const passwordHash = await bcrypt.hash(newPassword, 10);
+
+      await this.empresasRepository.update(
+        { id: empresa.id },
+        {
+          passwordHash: passwordHash,
+          resetPasswordToken: undefined,
+          resetPasswordExpires: undefined,
+        },
+      );
+
+      return {
+        message: 'Senha redefinida com sucesso!',
+      };
+    }
+
+    // Se não encontrou nem aluno nem empresa
+    throw new BadRequestException(
+      'Código de recuperação inválido ou expirado.',
+    );
   }
 }

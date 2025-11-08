@@ -17,13 +17,13 @@ export class EmpresaAluno {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ name: 'empresa_id', nullable: false })
+  @Column({ name: 'empresa_id', type: 'int', nullable: false })
   empresaId: number;
 
-  @Column({ name: 'aluno_id', nullable: false })
+  @Column({ name: 'aluno_id', type: 'int', nullable: false })
   alunoId: number;
 
-  @Column({ default: true, nullable: false })
+  @Column({ type: 'boolean', default: true, nullable: false })
   ativo: boolean;
 
   @Column({
@@ -45,7 +45,7 @@ export class EmpresaAluno {
   })
   origemVinculo: 'token' | 'solicitacao';
 
-  @Column({ name: 'vinculado_por', nullable: true })
+  @Column({ name: 'vinculado_por', type: 'varchar', nullable: true })
   vinculadoPor: string;
 
   @CreateDateColumn({ name: 'created_at' })

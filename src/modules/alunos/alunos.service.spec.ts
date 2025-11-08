@@ -3,9 +3,9 @@ import { AlunosService } from './alunos.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Aluno } from './entities/aluno.entity';
-import { Ponto } from '../pontos/ponto.entity';
-import { Rota } from '../rotas/rota.entity';
-import { RotaPassageiro } from '../rotas/rota-passageiro.entity';
+import { Ponto } from '../pontos/entities/ponto.entity';
+import { Rota } from '../rotas/entities/rota.entity';
+import { RotaPassageiro } from '../rotas/entities/rota-passageiro.entity';
 import { EmpresaAluno } from '../empresas/entities/empresa-aluno.entity';
 import { NotFoundException, ForbiddenException } from '@nestjs/common';
 

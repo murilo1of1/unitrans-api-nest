@@ -11,25 +11,33 @@ export class Empresa {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ type: 'varchar', nullable: false })
   nome: string;
 
-  @Column({ unique: true })
+  @Column({ type: 'varchar', nullable: false, unique: true })
   cnpj: string;
 
-  @Column({ unique: true })
+  @Column({ type: 'varchar', nullable: false, unique: true })
   email: string;
 
-  @Column({ name: 'password_hash', select: false })
+  @Column({
+    name: 'password_hash',
+    type: 'varchar',
+    nullable: false,
+    select: false,
+  })
   passwordHash: string;
 
-  @Column({ name: 'reset_password_token', nullable: true })
+  @Column({ name: 'stripe_account_id', type: 'varchar', nullable: true })
+  stripeAccountId: string;
+
+  @Column({ name: 'reset_password_token', type: 'varchar', nullable: true })
   resetPasswordToken: string;
 
-  @Column({ name: 'reset_password_expires', type: 'bigint', nullable: true })
-  resetPasswordExpires: number;
+  @Column({ name: 'reset_password_expires', type: 'timestamp', nullable: true })
+  resetPasswordExpires: Date;
 
-  @Column({ nullable: true })
+  @Column({ type: 'varchar', nullable: true })
   token: string;
 
   @Column({
@@ -37,6 +45,7 @@ export class Empresa {
     type: 'enum',
     enum: ['ambos', 'token', 'pesquisa'],
     default: 'ambos',
+    nullable: false,
   })
   tipoVinculo: 'ambos' | 'token' | 'pesquisa';
 

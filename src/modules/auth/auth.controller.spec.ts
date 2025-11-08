@@ -11,6 +11,7 @@ describe('AuthController', () => {
 
   const mockAuthService = {
     login: jest.fn(),
+    loginEmpresa: jest.fn(),
     forgotPassword: jest.fn(),
     resetPassword: jest.fn(),
   };

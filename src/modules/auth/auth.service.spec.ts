@@ -207,8 +207,32 @@ describe('AuthService', () => {
       expect(mockAlunosRepository.update).toHaveBeenCalled();
     });
 
-    it('deve retornar mesma mensagem quando aluno não existe (segurança)', async () => {
+    it('deve enviar email com token de recuperação quando empresa existe', async () => {
+      const mockEmpresa = {
+        id: 1,
+        email: 'empresa@test.com',
+      };
+
       mockAlunosRepository.findOne.mockResolvedValue(null);
+      mockEmpresasRepository.findOne.mockResolvedValue(mockEmpresa);
+      mockEmpresasRepository.update.mockResolvedValue(undefined);
+      mockEmailService.sendMail.mockResolvedValue(undefined);
+
+      const result = await service.forgotPassword({
+        email: 'empresa@test.com',
+      });
+
+      expect(result).toEqual({
+        message:
+          'Um e-mail com as instruções de recuperação foi enviado (se o e-mail existir em nosso sistema).',
+      });
+      expect(emailService.sendMail).toHaveBeenCalled();
+      expect(mockEmpresasRepository.update).toHaveBeenCalled();
+    });
+
+    it('deve retornar mesma mensagem quando email não existe (segurança)', async () => {
+      mockAlunosRepository.findOne.mockResolvedValue(null);
+      mockEmpresasRepository.findOne.mockResolvedValue(null);
 
       const result = await service.forgotPassword(forgotPasswordDto);
 
@@ -226,12 +250,12 @@ describe('AuthService', () => {
       newPassword: 'novaSenha123',
     };
 
-    it('deve resetar senha com sucesso quando token é válido', async () => {
+    it('deve resetar senha com sucesso quando token de aluno é válido', async () => {
       const mockAluno = {
         id: 1,
         email: 'joao@test.com',
         resetPasswordToken: 'valid-token',
-        resetPasswordExpires: Date.now() + 30 * 60 * 1000,
+        resetPasswordExpires: new Date(Date.now() + 30 * 60 * 1000),
       };
 
       mockAlunosRepository.findOne.mockResolvedValue(mockAluno);
@@ -252,8 +276,36 @@ describe('AuthService', () => {
       );
     });
 
+    it('deve resetar senha com sucesso quando token de empresa é válido', async () => {
+      const mockEmpresa = {
+        id: 1,
+        email: 'empresa@test.com',
+        resetPasswordToken: 'valid-token',
+        resetPasswordExpires: new Date(Date.now() + 30 * 60 * 1000),
+      };
+
+      mockAlunosRepository.findOne.mockResolvedValue(null);
+      mockEmpresasRepository.findOne.mockResolvedValue(mockEmpresa);
+      mockEmpresasRepository.update.mockResolvedValue(undefined);
+
+      const result = await service.resetPassword(resetPasswordDto);
+
+      expect(result).toEqual({
+        message: 'Senha redefinida com sucesso!',
+      });
+      expect(mockEmpresasRepository.update).toHaveBeenCalledWith(
+        { id: 1 },
+        expect.objectContaining({
+          passwordHash: expect.any(String),
+          resetPasswordToken: undefined,
+          resetPasswordExpires: undefined,
+        }),
+      );
+    });
+
     it('deve lançar BadRequestException quando token é inválido', async () => {
       mockAlunosRepository.findOne.mockResolvedValue(null);
+      mockEmpresasRepository.findOne.mockResolvedValue(null);
 
       await expect(service.resetPassword(resetPasswordDto)).rejects.toThrow(
         BadRequestException,
@@ -264,8 +316,8 @@ describe('AuthService', () => {
     });
 
     it('deve lançar BadRequestException quando token está expirado', async () => {
-      // Token expirado - findOne não deve encontrar
       mockAlunosRepository.findOne.mockResolvedValue(null);
+      mockEmpresasRepository.findOne.mockResolvedValue(null);
 
       await expect(service.resetPassword(resetPasswordDto)).rejects.toThrow(
         BadRequestException,

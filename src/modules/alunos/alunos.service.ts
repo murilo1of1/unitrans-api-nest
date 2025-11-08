@@ -7,9 +7,9 @@ import {
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Aluno } from './entities/aluno.entity';
-import { Ponto } from '../pontos/ponto.entity';
-import { Rota } from '../rotas/rota.entity';
-import { RotaPassageiro } from '../rotas/rota-passageiro.entity';
+import { Ponto } from '../pontos/entities/ponto.entity';
+import { Rota } from '../rotas/entities/rota.entity';
+import { RotaPassageiro } from '../rotas/entities/rota-passageiro.entity';
 import { EmpresaAluno } from '../empresas/entities/empresa-aluno.entity';
 import { CreateAlunoDto } from './dtos/create-aluno.dto';
 import { UpdateAlunoDto } from './dtos/update-aluno.dto';
@@ -142,15 +142,8 @@ export class AlunosService {
       );
     }
 
-    await this.alunosRepository.update(
-      { id: idAluno },
-      {
-        pontoEmbarque: pontoEmbarque,
-        pontoDesembarque: pontoDesembarque,
-      },
-    );
-
-    const hoje = new Date().toISOString().split('T')[0];
+    const hojeStr = new Date().toISOString().split('T')[0];
+    const hoje = new Date(hojeStr); // normalize to a Date object (YYYY-MM-DD -> UTC midnight)
 
     const registroExistente = await this.rotaPassageiroRepository.findOne({
       where: {

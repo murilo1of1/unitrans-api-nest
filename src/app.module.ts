@@ -1,4 +1,4 @@
-import { Module, ValidationPipe } from '@nestjs/common';
+import { Module, ValidationPipe, OnModuleInit } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { APP_PIPE } from '@nestjs/core';
@@ -7,6 +7,9 @@ import { AppService } from './app.service';
 import { AlunosModule } from './modules/alunos/alunos.module';
 import { EmpresasModule } from './modules/empresas/empresas.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { Aluno } from './modules/alunos/entities/aluno.entity';
+import { Empresa } from './modules/empresas/entities/empresa.entity';
+import { DatabaseSeeder } from './common/seeders/database.seeder';
 
 @Module({
   imports: [
@@ -21,9 +24,10 @@ import { AuthModule } from './modules/auth/auth.module';
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
       autoLoadEntities: true,
-      synchronize: false,
-      logging: process.env.NODE_ENV === 'development',
+      synchronize: true, // TypeORM vai criar o schema automaticamente
+      logging: true,
     }),
+    TypeOrmModule.forFeature([Aluno, Empresa]), // Para o seeder
     AuthModule,
     AlunosModule,
     EmpresasModule,
@@ -31,10 +35,17 @@ import { AuthModule } from './modules/auth/auth.module';
   controllers: [AppController],
   providers: [
     AppService,
+    DatabaseSeeder,
     {
       provide: APP_PIPE,
       useClass: ValidationPipe,
     },
   ],
 })
-export class AppModule {}
+export class AppModule implements OnModuleInit {
+  constructor(private readonly seeder: DatabaseSeeder) {}
+
+  async onModuleInit() {
+    await this.seeder.seed();
+  }
+}
