@@ -24,7 +24,7 @@ import { DatabaseSeeder } from './common/seeders/database.seeder';
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
       autoLoadEntities: true,
-      synchronize: true, // TypeORM vai criar o schema automaticamente
+      synchronize: true,
       logging: true,
     }),
     TypeOrmModule.forFeature([Aluno, Empresa]), // Para o seeder
