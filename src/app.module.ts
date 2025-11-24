@@ -8,6 +8,7 @@ import { AlunosModule } from './modules/alunos/alunos.module';
 import { EmpresasModule } from './modules/empresas/empresas.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { PontosModule } from './modules/pontos/pontos.module';
+import { RotasModule } from './modules/rotas/rotas.module';
 import { Aluno } from './modules/alunos/entities/aluno.entity';
 import { Empresa } from './modules/empresas/entities/empresa.entity';
 import { DatabaseSeeder } from './common/seeders/database.seeder';
@@ -33,6 +34,7 @@ import { DatabaseSeeder } from './common/seeders/database.seeder';
     AlunosModule,
     EmpresasModule,
     PontosModule,
+    RotasModule,
   ],
   controllers: [AppController],
   providers: [
