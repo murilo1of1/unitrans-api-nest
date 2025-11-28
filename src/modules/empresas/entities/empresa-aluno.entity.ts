@@ -35,15 +35,15 @@ export class EmpresaAluno {
   dataVinculo: Date;
 
   @Column({ name: 'data_desvinculo', type: 'timestamp', nullable: true })
-  dataDesvinculo: Date;
+  dataDesvinculo: Date | null;
 
   @Column({
     name: 'origem_vinculo',
     type: 'enum',
-    enum: ['token', 'solicitacao'],
+    enum: ['token', 'solicitacao', 'manual'],
     nullable: false,
   })
-  origemVinculo: 'token' | 'solicitacao';
+  origemVinculo: 'token' | 'solicitacao' | 'manual';
 
   @Column({ name: 'vinculado_por', type: 'varchar', nullable: true })
   vinculadoPor: string;
