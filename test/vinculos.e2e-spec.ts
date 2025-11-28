@@ -30,7 +30,6 @@ describe('VinculosController (e2e)', () => {
         transform: true,
         whitelist: true,
         forbidNonWhitelisted: true,
-        enableImplicitConversion: true,
       }),
     );
     await app.init();
