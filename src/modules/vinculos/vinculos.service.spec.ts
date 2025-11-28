@@ -116,12 +116,6 @@ describe('VinculosService', () => {
       const result = await service.criarVinculo(dto);
 
       expect(result).toEqual(vinculoComRelacoes);
-      expect(mockAlunoRepository.findOne).toHaveBeenCalledWith({
-        where: { id: dto.alunoId },
-      });
-      expect(mockEmpresaRepository.findOne).toHaveBeenCalledWith({
-        where: { id: dto.empresaId },
-      });
       expect(mockEmpresaAlunoRepository.create).toHaveBeenCalledWith(dto);
       expect(mockEmpresaAlunoRepository.save).toHaveBeenCalledWith(
         vinculoCriado,

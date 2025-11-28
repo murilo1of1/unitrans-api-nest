@@ -135,7 +135,10 @@ export class VinculosController {
   @Get('token')
   @ApiOperation({ summary: 'Listar tokens' })
   @ApiResponse({ status: 200, description: 'Tokens encontrados' })
-  async listarTokens(@Query('empresaId', ParseIntPipe) empresaId?: number) {
+  async listarTokens(
+    @Query('empresaId', new ParseIntPipe({ optional: true }))
+    empresaId?: number,
+  ) {
     const tokens = await this.vinculosService.listarTokens(empresaId);
     return {
       message: 'Tokens encontrados',

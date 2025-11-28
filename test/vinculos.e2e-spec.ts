@@ -1,14 +1,16 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication, ValidationPipe } from '@nestjs/common';
-import * as request from 'supertest';
-import { AppModule } from '../../app.module';
+import request from 'supertest';
+import { AppModule } from '../src/app.module';
 import { DataSource } from 'typeorm';
-import { EmpresaAluno } from '../empresas/entities/empresa-aluno.entity';
+import { EmpresaAluno } from '../src/modules/empresas/entities/empresa-aluno.entity';
 import {
   SolicitacaoVinculo,
   StatusSolicitacao,
-} from '../vinculos/entities/solicitacao-vinculo.entity';
-import { TokenAcesso } from '../vinculos/entities/token-acesso.entity';
+} from '../src/modules/vinculos/entities/solicitacao-vinculo.entity';
+import { TokenAcesso } from '../src/modules/vinculos/entities/token-acesso.entity';
+import { Empresa } from '../src/modules/empresas/entities/empresa.entity';
+import { Aluno } from '../src/modules/alunos/entities/aluno.entity';
 
 describe('VinculosController (e2e)', () => {
   let app: INestApplication;
@@ -35,26 +37,53 @@ describe('VinculosController (e2e)', () => {
 
     dataSource = moduleFixture.get<DataSource>(DataSource);
 
-    // Fazer login e obter token
-    const loginResponse = await request(app.getHttpServer())
-      .post('/auth/login')
+    // Criar empresa para testes
+    const timestamp = Date.now();
+    const randomSuffix = Math.floor(Math.random() * 100000);
+    const empresaEmail = `empresa-vinculos-${timestamp}-${randomSuffix}@test.com`;
+    const cnpjBase = `${timestamp}${randomSuffix}`;
+
+    const empresaResponse = await request(app.getHttpServer())
+      .post('/empresas')
       .send({
-        email: 'joao.silva@example.com',
+        nome: 'Empresa Teste Vínculos',
+        email: empresaEmail,
+        cnpj: cnpjBase.slice(-14).padStart(14, '0'),
+        senha: 'senha123',
+        tipoVinculo: 'ambos',
+      })
+      .expect(201);
+
+    empresaId = empresaResponse.body.data.id;
+
+    // Fazer login para obter token
+    const loginResponse = await request(app.getHttpServer())
+      .post('/auth/login-empresa')
+      .send({
+        email: empresaEmail,
         senha: 'senha123',
       });
 
-    authToken = loginResponse.body.access_token;
+    expect([200, 201]).toContain(loginResponse.status);
+    expect(loginResponse.body).toHaveProperty('response');
+    authToken = loginResponse.body.response;
+    expect(authToken).toBeDefined();
 
-    // Obter IDs de empresa e aluno existentes
-    const empresa = await dataSource
-      .getRepository('empresa')
-      .findOne({ where: {} });
-    const aluno = await dataSource
-      .getRepository('aluno')
-      .findOne({ where: {} });
+    // Criar aluno para testes
+    const alunoEmail = `aluno-vinculos-${timestamp}-${randomSuffix}@test.com`;
+    const cpfBase = `${timestamp}${randomSuffix}`;
 
-    empresaId = empresa.id;
-    alunoId = aluno.id;
+    const alunoResponse = await request(app.getHttpServer())
+      .post('/alunos')
+      .send({
+        nome: 'Aluno Teste Vínculos',
+        email: alunoEmail,
+        cpf: cpfBase.slice(-11).padStart(11, '0'),
+        senha: 'senha123',
+      })
+      .expect(201);
+
+    alunoId = alunoResponse.body.data.id;
   });
 
   afterAll(async () => {
@@ -63,9 +92,9 @@ describe('VinculosController (e2e)', () => {
 
   beforeEach(async () => {
     // Limpar tabelas de vínculos antes de cada teste
-    await dataSource.getRepository(EmpresaAluno).delete({});
-    await dataSource.getRepository(SolicitacaoVinculo).delete({});
-    await dataSource.getRepository(TokenAcesso).delete({});
+    await dataSource.getRepository(EmpresaAluno).clear();
+    await dataSource.getRepository(SolicitacaoVinculo).clear();
+    await dataSource.getRepository(TokenAcesso).clear();
   });
 
   describe('POST /vinculos - Criar Vínculo', () => {
@@ -336,7 +365,7 @@ describe('VinculosController (e2e)', () => {
 
     beforeEach(async () => {
       // Criar segundo aluno para teste
-      const alunos = await dataSource.getRepository('aluno').find();
+      const alunos = await dataSource.getRepository(Aluno).find();
       segundoAlunoId = alunos[1]?.id || alunoId;
 
       // Gerar token

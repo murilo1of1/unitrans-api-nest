@@ -33,8 +33,8 @@ export class SolicitacaoVinculo {
   idEmpresa: number;
 
   @Column({
-    type: 'enum',
-    enum: StatusSolicitacao,
+    type: 'varchar',
+    length: 20,
     default: StatusSolicitacao.PENDENTE,
     nullable: false,
   })

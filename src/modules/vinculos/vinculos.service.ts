@@ -80,8 +80,8 @@ export class VinculosService {
     const { alunoId, empresaId, ativo } = filterDto;
 
     const where: any = {};
-    if (alunoId) where.idAluno = alunoId;
-    if (empresaId) where.idEmpresa = empresaId;
+    if (alunoId) where.alunoId = alunoId;
+    if (empresaId) where.empresaId = empresaId;
     if (ativo !== undefined) where.ativo = ativo;
 
     return await this.empresaAlunoRepository.find({
@@ -95,7 +95,7 @@ export class VinculosService {
     idAluno: number,
     ativo?: boolean,
   ): Promise<EmpresaAluno[]> {
-    const where: any = { idAluno };
+    const where: any = { alunoId: idAluno };
     if (ativo !== undefined) where.ativo = ativo;
 
     return await this.empresaAlunoRepository.find({
@@ -109,7 +109,7 @@ export class VinculosService {
     idEmpresa: number,
     ativo?: boolean,
   ): Promise<EmpresaAluno[]> {
-    const where: any = { idEmpresa };
+    const where: any = { empresaId: idEmpresa };
     if (ativo !== undefined) where.ativo = ativo;
 
     return await this.empresaAlunoRepository.find({
@@ -239,7 +239,7 @@ export class VinculosService {
     }
 
     if (!tokenAcesso) {
-      throw new NotFoundException('Token inválido ou inativo');
+      throw new BadRequestException('Token inválido ou inativo');
     }
 
     // Validar expiração
