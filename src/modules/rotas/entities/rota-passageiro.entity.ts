@@ -26,11 +26,11 @@ export class RotaPassageiro {
   @Column({ name: 'id_aluno', type: 'int', nullable: false })
   idAluno: number;
 
-  @Column({ name: 'ponto_embarque', type: 'int', nullable: false })
-  pontoEmbarque: number;
+  @Column({ name: 'ponto_embarque', type: 'int', nullable: true })
+  pontoEmbarque: number | null;
 
-  @Column({ name: 'ponto_desembarque', type: 'int', nullable: false })
-  pontoDesembarque: number;
+  @Column({ name: 'ponto_desembarque', type: 'int', nullable: true })
+  pontoDesembarque: number | null;
 
   @Column({
     name: 'data_escolha',

@@ -39,6 +39,24 @@ export class EmpresasService {
   }
 
   async create(createEmpresaDto: CreateEmpresaDto) {
+    // Verificar se email já existe
+    const empresaExistenteEmail = await this.empresasRepository.findOne({
+      where: { email: createEmpresaDto.email },
+    });
+
+    if (empresaExistenteEmail) {
+      throw new BadRequestException('Email já cadastrado');
+    }
+
+    // Verificar se CNPJ já existe
+    const empresaExistenteCnpj = await this.empresasRepository.findOne({
+      where: { cnpj: createEmpresaDto.cnpj },
+    });
+
+    if (empresaExistenteCnpj) {
+      throw new BadRequestException('CNPJ já cadastrado');
+    }
+
     const data: any = { ...createEmpresaDto };
 
     data.passwordHash = await bcrypt.hash(data.senha, 10);

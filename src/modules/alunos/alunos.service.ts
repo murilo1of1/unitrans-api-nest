@@ -50,6 +50,24 @@ export class AlunosService {
   }
 
   async create(createAlunoDto: CreateAlunoDto) {
+    // Verificar se email já existe
+    const alunoExistenteEmail = await this.alunosRepository.findOne({
+      where: { email: createAlunoDto.email },
+    });
+
+    if (alunoExistenteEmail) {
+      throw new BadRequestException('Email já cadastrado');
+    }
+
+    // Verificar se CPF já existe
+    const alunoExistenteCpf = await this.alunosRepository.findOne({
+      where: { cpf: createAlunoDto.cpf },
+    });
+
+    if (alunoExistenteCpf) {
+      throw new BadRequestException('CPF já cadastrado');
+    }
+
     const data: any = { ...createAlunoDto };
 
     if (data.senha) {
@@ -129,17 +147,26 @@ export class AlunosService {
       );
     }
 
-    const pontoEmb = await this.pontosRepository.findOne({
-      where: { id: pontoEmbarque },
-    });
-    const pontoDes = await this.pontosRepository.findOne({
-      where: { id: pontoDesembarque },
-    });
+    // Validar pontos apenas se foram fornecidos (não são null)
+    let pontoEmb: Ponto | null = null;
+    let pontoDes: Ponto | null = null;
 
-    if (!pontoEmb || !pontoDes) {
-      throw new NotFoundException(
-        'Um ou ambos os pontos não foram encontrados',
-      );
+    if (pontoEmbarque !== null && pontoEmbarque !== undefined) {
+      pontoEmb = await this.pontosRepository.findOne({
+        where: { id: pontoEmbarque },
+      });
+      if (!pontoEmb) {
+        throw new NotFoundException('Ponto de embarque não encontrado');
+      }
+    }
+
+    if (pontoDesembarque !== null && pontoDesembarque !== undefined) {
+      pontoDes = await this.pontosRepository.findOne({
+        where: { id: pontoDesembarque },
+      });
+      if (!pontoDes) {
+        throw new NotFoundException('Ponto de desembarque não encontrado');
+      }
     }
 
     const hojeStr = new Date().toISOString().split('T')[0];
@@ -180,8 +207,8 @@ export class AlunosService {
         aluno: {
           id: aluno.id,
           nome: aluno.nome,
-          pontoEmbarque: pontoEmb.nome,
-          pontoDesembarque: pontoDes.nome,
+          pontoEmbarque: pontoEmb?.nome || 'Não vai embarcar',
+          pontoDesembarque: pontoDes?.nome || 'Não vai desembarcar',
         },
       },
     };

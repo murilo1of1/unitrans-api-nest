@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsOptional } from 'class-validator';
 
 export class SalvarEscolhasPontosDto {
   @IsNumber({}, { message: 'ID do aluno deve ser um número' })
@@ -9,11 +9,11 @@ export class SalvarEscolhasPontosDto {
   @IsNotEmpty({ message: 'ID da rota é obrigatório' })
   idRota: number;
 
+  @IsOptional()
   @IsNumber({}, { message: 'Ponto de embarque deve ser um número' })
-  @IsNotEmpty({ message: 'Ponto de embarque é obrigatório' })
-  pontoEmbarque: number;
+  pontoEmbarque?: number | null;
 
+  @IsOptional()
   @IsNumber({}, { message: 'Ponto de desembarque deve ser um número' })
-  @IsNotEmpty({ message: 'Ponto de desembarque é obrigatório' })
-  pontoDesembarque: number;
+  pontoDesembarque?: number | null;
 }

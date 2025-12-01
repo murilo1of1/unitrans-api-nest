@@ -231,10 +231,17 @@ export class VinculosService {
     // Encontrar o token que corresponde ao hash
     let tokenAcesso: TokenAcesso | null = null;
     for (const t of tokensAtivos) {
-      const isValid = await bcrypt.compare(token, t.token);
-      if (isValid) {
-        tokenAcesso = t;
-        break;
+      try {
+        if (!t.token) continue; // Pular se token for null/undefined
+        const isValid = await bcrypt.compare(token, t.token);
+        if (isValid) {
+          tokenAcesso = t;
+          break;
+        }
+      } catch (error) {
+        // Token hash inválido no banco, continuar para próximo
+        console.error(`Erro ao comparar token ID ${t.id}:`, error.message);
+        continue;
       }
     }
 
