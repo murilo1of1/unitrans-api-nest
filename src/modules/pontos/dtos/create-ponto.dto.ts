@@ -15,15 +15,15 @@ export class CreatePontoDto {
   @IsString()
   endereco: string;
 
-  @ApiProperty({ description: 'Latitude', example: -23.5505 })
-  @IsNotEmpty({ message: 'Latitude é obrigatória' })
+  @ApiProperty({ description: 'Latitude', example: -23.5505, required: false })
+  @IsOptional()
   @IsNumber({}, { message: 'Latitude deve ser um número' })
-  latitude: number;
+  latitude?: number;
 
-  @ApiProperty({ description: 'Longitude', example: -46.6333 })
-  @IsNotEmpty({ message: 'Longitude é obrigatória' })
+  @ApiProperty({ description: 'Longitude', example: -46.6333, required: false })
+  @IsOptional()
   @IsNumber({}, { message: 'Longitude deve ser um número' })
-  longitude: number;
+  longitude?: number;
 
   @ApiProperty({ description: 'ID da empresa', example: 1 })
   @IsNotEmpty({ message: 'ID da empresa é obrigatório' })
