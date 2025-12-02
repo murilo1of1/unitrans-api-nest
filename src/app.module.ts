@@ -12,6 +12,10 @@ import { RotasModule } from './modules/rotas/rotas.module';
 import { VinculosModule } from './modules/vinculos/vinculos.module';
 import { Aluno } from './modules/alunos/entities/aluno.entity';
 import { Empresa } from './modules/empresas/entities/empresa.entity';
+import { EmpresaAluno } from './modules/empresas/entities/empresa-aluno.entity';
+import { Ponto } from './modules/pontos/entities/ponto.entity';
+import { Rota } from './modules/rotas/entities/rota.entity';
+import { RotaPonto } from './modules/rotas/entities/rota-ponto.entity';
 import { DatabaseSeeder } from './common/seeders/database.seeder';
 
 @Module({
@@ -28,9 +32,17 @@ import { DatabaseSeeder } from './common/seeders/database.seeder';
       database: process.env.POSTGRES_DB,
       autoLoadEntities: true,
       synchronize: true,
-      logging: true,
+      dropSchema: true, // Dropa e recria o banco toda vez
+      logging: false, // Desabilitado para não poluir console
     }),
-    TypeOrmModule.forFeature([Aluno, Empresa]), // Para o seeder
+    TypeOrmModule.forFeature([
+      Aluno,
+      Empresa,
+      EmpresaAluno,
+      Ponto,
+      Rota,
+      RotaPonto,
+    ]), // Para o seeder
     AuthModule,
     AlunosModule,
     EmpresasModule,

@@ -268,14 +268,15 @@ export class RotasService {
       };
     }
 
-    // Buscar passageiros do dia
+    // Buscar passageiros do dia (aceita embarque OU desembarque)
     const passageirosHoje = await this.alunoRepository
       .createQueryBuilder('aluno')
       .leftJoinAndSelect('aluno.pontoEmbarqueObj', 'pontoEmbarque')
       .leftJoinAndSelect('aluno.pontoDesembarqueObj', 'pontoDesembarque')
       .where('aluno.id IN (:...ids)', { ids: idsAlunosVinculados })
-      .andWhere('aluno.pontoEmbarque IS NOT NULL')
-      .andWhere('aluno.pontoDesembarque IS NOT NULL')
+      .andWhere(
+        '(aluno.pontoEmbarque IS NOT NULL OR aluno.pontoDesembarque IS NOT NULL)',
+      )
       .getMany();
 
     // Registrar em RotaPassageiro se ainda não existe
