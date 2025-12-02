@@ -169,14 +169,14 @@ export class AlunosService {
       }
     }
 
-    const hojeStr = new Date().toISOString().split('T')[0];
-    const hoje = new Date(hojeStr); // normalize to a Date object (YYYY-MM-DD -> UTC midnight)
+    // Data no formato string YYYY-MM-DD (mesma lógica da API Express)
+    const hoje = new Date().toISOString().split('T')[0];
 
     const registroExistente = await this.rotaPassageiroRepository.findOne({
       where: {
         idRota,
         idAluno,
-        dataEscolha: hoje,
+        dataEscolha: hoje as any, // TypeORM aceita string para tipo date
       },
     });
 

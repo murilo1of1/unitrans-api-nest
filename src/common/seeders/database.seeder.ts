@@ -29,19 +29,18 @@ export class DatabaseSeeder {
   ) {}
 
   async seed() {
-    this.logger.log('🌱 [SEEDER] Iniciando seeding do banco de dados');
+    this.logger.log('[SEEDER] Iniciando seeding do banco de dados');
 
-    // Ordem de criação
     const empresas = await this.seedEmpresas();
     const alunos = await this.seedAlunos();
     await this.seedVinculos(empresas, alunos);
     await this.seedRotasEPontos(empresas);
 
-    this.logger.log('✅ [SEEDER] Seeding concluído com sucesso!');
+    this.logger.log('[SEEDER] Seeding concluído com sucesso!');
   }
 
   private async seedEmpresas(): Promise<Empresa[]> {
-    this.logger.log('📦 [SEEDER] Criando empresas...');
+    this.logger.log('[SEEDER] Criando empresas...');
     const passwordHash = await bcrypt.hash('senha123', 10);
 
     const empresasData = [
@@ -81,7 +80,7 @@ export class DatabaseSeeder {
   }
 
   private async seedAlunos(): Promise<Aluno[]> {
-    this.logger.log('👥 [SEEDER] Criando alunos...');
+    this.logger.log('[SEEDER] Criando alunos...');
     const passwordHash = await bcrypt.hash('senha123', 10);
 
     const alunosData = [
@@ -182,14 +181,14 @@ export class DatabaseSeeder {
     for (const alunoData of alunosData) {
       const aluno = await this.alunosRepository.save(alunoData);
       alunos.push(aluno);
-      this.logger.log(`  ✓ Aluno criado: ${aluno.nome} (ID: ${aluno.id})`);
+      this.logger.log(`Aluno criado: ${aluno.nome} (ID: ${aluno.id})`);
     }
 
     return alunos;
   }
 
   private async seedVinculos(empresas: Empresa[], alunos: Aluno[]) {
-    this.logger.log('🔗 [SEEDER] Criando vínculos empresa-aluno...');
+    this.logger.log('[SEEDER] Criando vínculos empresa-aluno...');
 
     // Empresa 1: 5 alunos
     for (let i = 0; i < 5; i++) {
@@ -201,7 +200,7 @@ export class DatabaseSeeder {
         vinculadoPor: 'seeder',
       });
     }
-    this.logger.log(`  ✓ ${empresas[0].nome}: 5 alunos vinculados`);
+    this.logger.log(`${empresas[0].nome}: 5 alunos vinculados`);
 
     // Empresa 2: 4 alunos
     for (let i = 5; i < 9; i++) {
@@ -213,7 +212,7 @@ export class DatabaseSeeder {
         vinculadoPor: 'seeder',
       });
     }
-    this.logger.log(`  ✓ ${empresas[1].nome}: 4 alunos vinculados`);
+    this.logger.log(`${empresas[1].nome}: 4 alunos vinculados`);
 
     // Empresa 3: 3 alunos
     for (let i = 9; i < 12; i++) {
@@ -225,17 +224,15 @@ export class DatabaseSeeder {
         vinculadoPor: 'seeder',
       });
     }
-    this.logger.log(`  ✓ ${empresas[2].nome}: 3 alunos vinculados`);
+    this.logger.log(`${empresas[2].nome}: 3 alunos vinculados`);
   }
 
   private async seedRotasEPontos(empresas: Empresa[]) {
-    this.logger.log('🛣️ [SEEDER] Criando rotas e pontos...');
-
+    this.logger.log('[SEEDER] Criando rotas e pontos...');
     for (let empIndex = 0; empIndex < empresas.length; empIndex++) {
       const empresa = empresas[empIndex];
       this.logger.log(`  📍 Empresa: ${empresa.nome}`);
 
-      // Criar 10 pontos para cada empresa
       const pontos: Ponto[] = [];
       for (let p = 1; p <= 10; p++) {
         const ponto = await this.pontosRepository.save({
@@ -249,7 +246,6 @@ export class DatabaseSeeder {
       }
       this.logger.log(`    ✓ 10 pontos criados`);
 
-      // Criar 3 rotas para cada empresa
       for (let r = 1; r <= 3; r++) {
         const rota = await this.rotasRepository.save({
           idEmpresa: empresa.id,
@@ -259,11 +255,9 @@ export class DatabaseSeeder {
             r === 1 ? 'Escola Central' : r === 2 ? 'Universidade' : 'Colégio',
         });
 
-        // Associar pontos à rota (4 embarque + 4 desembarque)
         const embarqueStart = (r - 1) * 3;
         const desembarqueStart = embarqueStart + 5;
 
-        // 4 pontos de embarque
         for (let ordem = 1; ordem <= 4; ordem++) {
           const pontoIndex = (embarqueStart + ordem - 1) % 10;
           await this.rotaPontoRepository.save({
@@ -274,7 +268,6 @@ export class DatabaseSeeder {
           });
         }
 
-        // 4 pontos de desembarque
         for (let ordem = 1; ordem <= 4; ordem++) {
           const pontoIndex = (desembarqueStart + ordem - 1) % 10;
           await this.rotaPontoRepository.save({
@@ -286,7 +279,7 @@ export class DatabaseSeeder {
         }
 
         this.logger.log(
-          `    ✓ ${rota.nome} criada com 8 pontos (4 embarque + 4 desembarque)`,
+          `   ${rota.nome} criada com 8 pontos (4 embarque + 4 desembarque)`,
         );
       }
     }

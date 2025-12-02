@@ -229,6 +229,7 @@ export class RotasService {
       throw new NotFoundException('Rota não encontrada');
     }
 
+    // Data no formato string YYYY-MM-DD (mesma lógica da API Express)
     const hoje = new Date().toISOString().split('T')[0];
 
     // Buscar pontos da rota
@@ -268,66 +269,67 @@ export class RotasService {
       };
     }
 
-    // Buscar passageiros do dia (aceita embarque OU desembarque)
-    const passageirosHoje = await this.alunoRepository
-      .createQueryBuilder('aluno')
-      .leftJoinAndSelect('aluno.pontoEmbarqueObj', 'pontoEmbarque')
-      .leftJoinAndSelect('aluno.pontoDesembarqueObj', 'pontoDesembarque')
-      .where('aluno.id IN (:...ids)', { ids: idsAlunosVinculados })
-      .andWhere(
-        '(aluno.pontoEmbarque IS NOT NULL OR aluno.pontoDesembarque IS NOT NULL)',
-      )
-      .getMany();
+    // Buscar registros de passageiros do dia na tabela rota_passageiros
+    const registrosPassageiros = await this.rotaPassageiroRepository.find({
+      where: {
+        idRota,
+        ativo: true,
+      },
+    });
 
-    // Registrar em RotaPassageiro se ainda não existe
-    for (const aluno of passageirosHoje) {
-      const registroExistente = await this.rotaPassageiroRepository.findOne({
-        where: {
-          idRota,
-          idAluno: aluno.id,
-          dataEscolha: hoje as any,
-        },
-      });
+    // Filtrar por data manualmente (comparação apenas de data, sem hora)
+    const registrosDoDia = registrosPassageiros.filter((r) => {
+      const dataRegistro = new Date(r.dataEscolha).toISOString().split('T')[0];
+      return dataRegistro === hoje;
+    });
 
-      if (!registroExistente) {
-        await this.rotaPassageiroRepository.save({
-          idRota,
-          idAluno: aluno.id,
-          pontoEmbarque: aluno.pontoEmbarque,
-          pontoDesembarque: aluno.pontoDesembarque,
-          dataEscolha: hoje as any,
-          ativo: true,
-        });
-      }
-    }
+    // Buscar dados completos dos alunos
+    const idsAlunosComEscolha = registrosDoDia.map((rp) => rp.idAluno);
+
+    const alunosComDados = await this.alunoRepository.find({
+      where:
+        idsAlunosComEscolha.length > 0
+          ? idsAlunosComEscolha.map((id) => ({ id }))
+          : [],
+    });
+
+    // Criar mapa de alunos para acesso rápido
+    const alunosMap = new Map(alunosComDados.map((a) => [a.id, a]));
 
     // Agrupar passageiros por ponto
     const passageirosPorPonto = pontosRota.map((rotaPonto) => {
       const pontoId = rotaPonto.ponto.id;
       const tipoPonto = rotaPonto.tipo;
 
-      const passageiros = passageirosHoje
-        .filter((passageiro) => {
+      const passageiros = registrosDoDia
+        .filter((registro) => {
           if (tipoPonto === 'embarque') {
-            return passageiro.pontoEmbarque === pontoId;
+            return registro.pontoEmbarque === pontoId;
           } else if (tipoPonto === 'desembarque') {
-            return passageiro.pontoDesembarque === pontoId;
+            return registro.pontoDesembarque === pontoId;
           }
           return false;
         })
-        .map((passageiro) => ({
-          id: passageiro.id,
-          nome: passageiro.nome,
-          email: passageiro.email,
-          pontoEmbarque: {
-            id: passageiro.pontoEmbarqueObj?.id,
-            nome: passageiro.pontoEmbarqueObj?.nome,
-          },
-          pontoDesembarque: {
-            id: passageiro.pontoDesembarqueObj?.id,
-            nome: passageiro.pontoDesembarqueObj?.nome,
-          },
-        }));
+        .map((registro) => {
+          const aluno = alunosMap.get(registro.idAluno);
+          return {
+            id: aluno?.id || registro.idAluno,
+            nome: aluno?.nome || 'Desconhecido',
+            email: aluno?.email || '',
+            pontoEmbarque: {
+              id: registro.pontoEmbarque,
+              nome: registro.pontoEmbarque
+                ? `Ponto ${registro.pontoEmbarque}`
+                : null,
+            },
+            pontoDesembarque: {
+              id: registro.pontoDesembarque,
+              nome: registro.pontoDesembarque
+                ? `Ponto ${registro.pontoDesembarque}`
+                : null,
+            },
+          };
+        });
 
       return {
         ponto: {
