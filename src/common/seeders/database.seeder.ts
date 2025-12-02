@@ -71,9 +71,7 @@ export class DatabaseSeeder {
     for (const empresaData of empresasData) {
       const empresa = await this.empresasRepository.save(empresaData);
       empresas.push(empresa);
-      this.logger.log(
-        `  ✓ Empresa criada: ${empresa.nome} (ID: ${empresa.id})`,
-      );
+      this.logger.log(`Empresa criada: ${empresa.nome} (ID: ${empresa.id})`);
     }
 
     return empresas;
@@ -84,7 +82,6 @@ export class DatabaseSeeder {
     const passwordHash = await bcrypt.hash('senha123', 10);
 
     const alunosData = [
-      // 15 alunos no total (5 + 4 + 3 + 3 extras)
       {
         nome: 'João Silva',
         email: 'joao.silva@test.com',
@@ -231,7 +228,7 @@ export class DatabaseSeeder {
     this.logger.log('[SEEDER] Criando rotas e pontos...');
     for (let empIndex = 0; empIndex < empresas.length; empIndex++) {
       const empresa = empresas[empIndex];
-      this.logger.log(`  📍 Empresa: ${empresa.nome}`);
+      this.logger.log(`Empresa: ${empresa.nome}`);
 
       const pontos: Ponto[] = [];
       for (let p = 1; p <= 10; p++) {
@@ -244,7 +241,7 @@ export class DatabaseSeeder {
         });
         pontos.push(ponto);
       }
-      this.logger.log(`    ✓ 10 pontos criados`);
+      this.logger.log('10 pontos criados');
 
       for (let r = 1; r <= 3; r++) {
         const rota = await this.rotasRepository.save({
@@ -279,7 +276,7 @@ export class DatabaseSeeder {
         }
 
         this.logger.log(
-          `   ${rota.nome} criada com 8 pontos (4 embarque + 4 desembarque)`,
+          `${rota.nome} criada com 8 pontos (4 embarque + 4 desembarque)`,
         );
       }
     }

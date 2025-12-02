@@ -176,7 +176,7 @@ export class AlunosService {
       where: {
         idRota,
         idAluno,
-        dataEscolha: hoje as any, // TypeORM aceita string para tipo date
+        dataEscolha: hoje as any,
       },
     });
 
