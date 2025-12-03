@@ -30,7 +30,7 @@ async function bootstrap() {
   SwaggerModule.setup('docs', app, document);
 
   const port = process.env.PORT || 3000;
-  await app.listen(port);
+  await app.listen(port, '0.0.0.0');
   console.log(`Aplicação rodando na porta ${port}`);
   console.log(`Documentação disponível em http://localhost:${port}/docs`);
 }
