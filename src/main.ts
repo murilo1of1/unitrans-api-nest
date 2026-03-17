@@ -4,7 +4,9 @@ import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    rawBody: true, // Necessário para coletar assinatura correta via webhook
+  });
 
   app.enableCors();
 
@@ -29,7 +31,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);
 
-  const port = process.env.PORT || 3000;
+  const port = process.env.API_PORT || 3000;
   await app.listen(port, '0.0.0.0');
   console.log(`Aplicação rodando na porta ${port}`);
   console.log(`Documentação disponível em http://localhost:${port}/docs`);
