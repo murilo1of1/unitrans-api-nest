@@ -17,6 +17,7 @@ import { Ponto } from './modules/pontos/entities/ponto.entity';
 import { Rota } from './modules/rotas/entities/rota.entity';
 import { RotaPonto } from './modules/rotas/entities/rota-ponto.entity';
 import { DatabaseSeeder } from './common/seeders/database.seeder';
+import { PagamentosModule } from './modules/pagamentos/pagamentos.module';
 
 @Module({
   imports: [
@@ -49,6 +50,7 @@ import { DatabaseSeeder } from './common/seeders/database.seeder';
     PontosModule,
     RotasModule,
     VinculosModule,
+    PagamentosModule,
   ],
   controllers: [AppController],
   providers: [
