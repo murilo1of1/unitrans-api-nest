@@ -24,7 +24,7 @@ import { AddPontoToRotaDto } from './dtos/add-ponto-to-rota.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
 @ApiTags('Pontos')
-@Controller('pontos')
+@Controller('ponto')
 @UseGuards(JwtAuthGuard)
 @ApiBearerAuth()
 export class PontosController {

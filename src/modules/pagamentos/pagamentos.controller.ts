@@ -1,7 +1,8 @@
-import { Controller, Post, Body, Param, Req, Res, UnauthorizedException } from '@nestjs/common';
+import { Controller, Post, Body, Param, Req, Res, UnauthorizedException, Get } from '@nestjs/common';
 import type { Request, Response } from 'express';
 import { PagamentosService } from './pagamentos.service';
 import { CreatePixDto } from './dtos/create-pix.dto';
+import { CreateFaturaDto } from './dtos/create-fatura.dto';
 import { verifyAbacateSignature } from './utils/verify-webhook.util';
 
 @Controller('pagamentos')
@@ -16,6 +17,21 @@ export class PagamentosController {
   @Post('pix/simular/:id')
   async simularPagamentoPix(@Param('id') id: string) {
     return this.pagamentosService.simularPagamento(id);
+  }
+
+  @Post('faturas')
+  async criarFatura(@Body() createFaturaDto: CreateFaturaDto) {
+    return this.pagamentosService.criarFatura(createFaturaDto);
+  }
+
+  @Get('faturas/aluno/:id')
+  async buscarFaturasPorAluno(@Param('id') alunoId: number) {
+    return this.pagamentosService.buscarFaturasPorAluno(alunoId);
+  }
+
+  @Get('faturas/empresa/:id')
+  async buscarFaturasPorEmpresa(@Param('id') empresaId: number) {
+    return this.pagamentosService.buscarFaturasPorEmpresa(empresaId);
   }
 
   @Post('webhook')
@@ -36,6 +52,7 @@ export class PagamentosController {
         case 'billing.paid':
           console.log(`Pagamento PIX/Cobrança Confirmado. ID da Cobranca: ${dados?.id}`);
           console.log(`Dados do Pagamento:`, dados);
+          await this.pagamentosService.marcarFaturaComoPaga(dados?.id);
           break;
 
         case 'billing.created':

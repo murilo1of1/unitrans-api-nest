@@ -15,7 +15,7 @@ import { CreateEmpresaDto } from './dtos/create-empresa.dto';
 import { UpdateEmpresaDto } from './dtos/update-empresa.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
-@Controller('empresas')
+@Controller('empresa')
 export class EmpresasController {
   constructor(private readonly empresasService: EmpresasService) {}
 
