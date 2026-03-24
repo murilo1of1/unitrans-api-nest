@@ -29,7 +29,7 @@ import { FilterSolicitacaoDto } from './dtos/filter-solicitacao.dto';
 import { StatusSolicitacao } from './entities/solicitacao-vinculo.entity';
 
 @ApiTags('Vínculos')
-@Controller('vinculos')
+@Controller('vinculo')
 @UseGuards(JwtAuthGuard)
 @ApiBearerAuth()
 export class VinculosController {

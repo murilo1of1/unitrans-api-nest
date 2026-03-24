@@ -10,6 +10,7 @@ import {
 } from 'typeorm';
 import { Empresa } from './empresa.entity';
 import { Aluno } from '../../alunos/entities/aluno.entity';
+import { Plano } from '../../planos/entities/plano.entity';
 
 @Entity('empresa_aluno')
 @Index('unique_empresa_aluno', ['empresaId', 'alunoId'], { unique: true })
@@ -22,6 +23,9 @@ export class EmpresaAluno {
 
   @Column({ name: 'aluno_id', type: 'int', nullable: false })
   alunoId: number;
+
+  @Column({ name: 'plano_id', type: 'int', nullable: true })
+  planoId: number; // Qual é o plano mensal que o aluno escolheu ao se vincular. Ficará null se ele ainda não escolheu ou se for apenas carona avulsa.
 
   @Column({ type: 'boolean', default: true, nullable: false })
   ativo: boolean;
@@ -61,4 +65,8 @@ export class EmpresaAluno {
   @ManyToOne(() => Aluno, { onUpdate: 'CASCADE', onDelete: 'CASCADE' })
   @JoinColumn({ name: 'aluno_id' })
   aluno: Aluno;
+
+  @ManyToOne(() => Plano, { onUpdate: 'CASCADE', onDelete: 'SET NULL' })
+  @JoinColumn({ name: 'plano_id' })
+  plano: Plano;
 }

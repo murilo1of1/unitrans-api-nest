@@ -19,7 +19,7 @@ import { UpdatePontoRotaDto } from './dtos/update-ponto-rota.dto';
 import { GetPassageirosRotaDto } from './dtos/get-passageiros-rota.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
-@Controller('rotas')
+@Controller('rota')
 @UseGuards(JwtAuthGuard)
 export class RotasController {
   constructor(private readonly rotasService: RotasService) {}

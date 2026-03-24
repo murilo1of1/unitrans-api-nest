@@ -16,7 +16,7 @@ import { UpdateAlunoDto } from './dtos/update-aluno.dto';
 import { SalvarEscolhasPontosDto } from './dtos/salvar-escolhas-pontos.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
-@Controller('alunos')
+@Controller('aluno')
 export class AlunosController {
   constructor(private readonly alunosService: AlunosService) {}
 
