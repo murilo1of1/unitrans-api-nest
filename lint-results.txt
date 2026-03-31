@@ -1,0 +1,739 @@
+
+> api-nest@0.0.1 lint
+> eslint "{src,apps,libs,test}/**/*.ts" --fix
+
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\src\main.ts
+  39:1  warning  Promises must be awaited, end with a call to .catch, end with a call to .then with a rejection handler or be explicitly marked as ignored with the `void` operator  @typescript-eslint/no-floating-promises
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\src\modules\alunos\alunos.controller.spec.ts
+   59:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+   75:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+   97:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  117:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  133:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  163:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\src\modules\alunos\alunos.service.spec.ts
+   19:7   error    'alunosRepository' is assigned a value but never used                           @typescript-eslint/no-unused-vars
+   20:7   error    'pontosRepository' is assigned a value but never used                           @typescript-eslint/no-unused-vars
+   21:7   error    'rotasRepository' is assigned a value but never used                            @typescript-eslint/no-unused-vars
+   22:7   error    'rotaPassageiroRepository' is assigned a value but never used                   @typescript-eslint/no-unused-vars
+   23:7   error    'empresaAlunoRepository' is assigned a value but never used                     @typescript-eslint/no-unused-vars
+  157:43  warning  Unsafe argument of type `any` assigned to a parameter of type `CreateAlunoDto`  @typescript-eslint/no-unsafe-argument
+  175:43  warning  Unsafe argument of type `any` assigned to a parameter of type `CreateAlunoDto`  @typescript-eslint/no-unsafe-argument
+  192:46  warning  Unsafe argument of type `any` assigned to a parameter of type `UpdateAlunoDto`  @typescript-eslint/no-unsafe-argument
+  201:40  warning  Unsafe argument of type `any` assigned to a parameter of type `UpdateAlunoDto`  @typescript-eslint/no-unsafe-argument
+  213:31  warning  Unsafe argument of type `any` assigned to a parameter of type `UpdateAlunoDto`  @typescript-eslint/no-unsafe-argument
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\src\modules\alunos\alunos.service.ts
+   73:14  error    Unsafe member access .senha on an `any` value                                                     @typescript-eslint/no-unsafe-member-access
+   74:12  error    Unsafe member access .passwordHash on an `any` value                                              @typescript-eslint/no-unsafe-member-access
+   74:45  warning  Unsafe argument of type `any` assigned to a parameter of type `string | Buffer<ArrayBufferLike>`  @typescript-eslint/no-unsafe-argument
+   74:50  error    Unsafe member access .senha on an `any` value                                                     @typescript-eslint/no-unsafe-member-access
+   75:19  error    Unsafe member access .senha on an `any` value                                                     @typescript-eslint/no-unsafe-member-access
+   78:48  warning  Unsafe argument of type `any` assigned to a parameter of type `DeepPartial<Aluno>[]`              @typescript-eslint/no-unsafe-argument
+   82:16  error    Unsafe assignment of an `any` value                                                               @typescript-eslint/no-unsafe-assignment
+   82:27  error    Unsafe member access .id on an `any` value                                                        @typescript-eslint/no-unsafe-member-access
+   92:14  error    Unsafe member access .senha on an `any` value                                                     @typescript-eslint/no-unsafe-member-access
+   93:12  error    Unsafe member access .passwordHash on an `any` value                                              @typescript-eslint/no-unsafe-member-access
+   93:45  warning  Unsafe argument of type `any` assigned to a parameter of type `string | Buffer<ArrayBufferLike>`  @typescript-eslint/no-unsafe-argument
+   93:50  error    Unsafe member access .senha on an `any` value                                                     @typescript-eslint/no-unsafe-member-access
+   94:19  error    Unsafe member access .senha on an `any` value                                                     @typescript-eslint/no-unsafe-member-access
+   97:44  warning  Unsafe argument of type `any` assigned to a parameter of type `_QueryDeepPartialEntity<Aluno>`    @typescript-eslint/no-unsafe-argument
+  179:9   error    Unsafe assignment of an `any` value                                                               @typescript-eslint/no-unsafe-assignment
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\src\modules\auth\auth.controller.spec.ts
+  59:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  79:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  99:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\src\modules\auth\auth.module.ts
+  19:7  error  Async method 'useFactory' has no 'await' expression  @typescript-eslint/require-await
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\src\modules\auth\auth.service.spec.ts
+  111:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  160:13  error  Unsafe assignment of an `any` value                                                                                                                                                                                                                                                                                                         @typescript-eslint/no-unsafe-assignment
+  160:22  error  A `require()` style import is forbidden                                                                                                                                                                                                                                                                                                     @typescript-eslint/no-require-imports
+  177:7   error  Unsafe call of a(n) `any` typed value                                                                                                                                                                                                                                                                                                       @typescript-eslint/no-unsafe-call
+  177:14  error  Unsafe member access .compare on an `any` value                                                                                                                                                                                                                                                                                             @typescript-eslint/no-unsafe-member-access
+  206:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  229:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  243:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  272:11  error  Unsafe assignment of an `any` value                                                                                                                                                                                                                                                                                                         @typescript-eslint/no-unsafe-assignment
+  299:11  error  Unsafe assignment of an `any` value                                                                                                                                                                                                                                                                                                         @typescript-eslint/no-unsafe-assignment
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\src\modules\auth\strategies\jwt.strategy.ts
+  26:16  error  Unsafe assignment of an `any` value              @typescript-eslint/no-unsafe-assignment
+  26:28  error  Unsafe member access .idAluno on an `any` value  @typescript-eslint/no-unsafe-member-access
+  34:7   error  Unsafe assignment of an `any` value              @typescript-eslint/no-unsafe-assignment
+  34:19  error  Unsafe member access .idAluno on an `any` value  @typescript-eslint/no-unsafe-member-access
+  35:7   error  Unsafe assignment of an `any` value              @typescript-eslint/no-unsafe-assignment
+  35:21  error  Unsafe member access .nome on an `any` value     @typescript-eslint/no-unsafe-member-access
+  36:7   error  Unsafe assignment of an `any` value              @typescript-eslint/no-unsafe-assignment
+  36:22  error  Unsafe member access .email on an `any` value    @typescript-eslint/no-unsafe-member-access
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\src\modules\empresas\empresas.controller.spec.ts
+   66:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+   88:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  118:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  144:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  165:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\src\modules\empresas\empresas.controller.ts
+  11:3   error  'UseGuards' is defined but never used                          @typescript-eslint/no-unused-vars
+  16:10  error  'JwtAuthGuard' is defined but never used                       @typescript-eslint/no-unused-vars
+  42:11  error  Unsafe assignment of an error typed value                      @typescript-eslint/no-unsafe-assignment
+  42:25  error  Unsafe call of a(n) `error` type typed value                   @typescript-eslint/no-unsafe-call
+  42:43  error  Unsafe member access .findByEmpresa on an `error` typed value  @typescript-eslint/no-unsafe-member-access
+  45:7   error  Unsafe assignment of an error typed value                      @typescript-eslint/no-unsafe-assignment
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\src\modules\empresas\empresas.service.spec.ts
+  16:7  error  'repository' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\src\modules\empresas\empresas.service.ts
+  62:10  error    Unsafe member access .passwordHash on an `any` value                                              @typescript-eslint/no-unsafe-member-access
+  62:43  warning  Unsafe argument of type `any` assigned to a parameter of type `string | Buffer<ArrayBufferLike>`  @typescript-eslint/no-unsafe-argument
+  62:48  error    Unsafe member access .senha on an `any` value                                                     @typescript-eslint/no-unsafe-member-access
+  63:17  error    Unsafe member access .senha on an `any` value                                                     @typescript-eslint/no-unsafe-member-access
+  65:52  warning  Unsafe argument of type `any` assigned to a parameter of type `DeepPartial<Empresa>[]`            @typescript-eslint/no-unsafe-argument
+  69:16  error    Unsafe assignment of an `any` value                                                               @typescript-eslint/no-unsafe-assignment
+  69:27  error    Unsafe member access .id on an `any` value                                                        @typescript-eslint/no-unsafe-member-access
+  79:14  error    Unsafe member access .senha on an `any` value                                                     @typescript-eslint/no-unsafe-member-access
+  80:12  error    Unsafe member access .passwordHash on an `any` value                                              @typescript-eslint/no-unsafe-member-access
+  80:45  warning  Unsafe argument of type `any` assigned to a parameter of type `string | Buffer<ArrayBufferLike>`  @typescript-eslint/no-unsafe-argument
+  80:50  error    Unsafe member access .senha on an `any` value                                                     @typescript-eslint/no-unsafe-member-access
+  81:19  error    Unsafe member access .senha on an `any` value                                                     @typescript-eslint/no-unsafe-member-access
+  84:46  warning  Unsafe argument of type `any` assigned to a parameter of type `_QueryDeepPartialEntity<Empresa>`  @typescript-eslint/no-unsafe-argument
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\src\modules\pagamentos\pagamentos.controller.ts
+  23:5   error    Unsafe return of a value of type `Promise<any>`                         @typescript-eslint/no-unsafe-return
+  28:5   error    Unsafe return of a value of type `Promise<any>`                         @typescript-eslint/no-unsafe-return
+  55:13  error    Unsafe assignment of an `any` value                                     @typescript-eslint/no-unsafe-assignment
+  56:13  error    Unsafe assignment of an `any` value                                     @typescript-eslint/no-unsafe-assignment
+  56:30  error    Unsafe member access .event on an `any` value                           @typescript-eslint/no-unsafe-member-access
+  57:13  error    Unsafe assignment of an `any` value                                     @typescript-eslint/no-unsafe-assignment
+  57:29  error    Unsafe member access .data on an `any` value                            @typescript-eslint/no-unsafe-member-access
+  63:74  error    Unsafe member access .id on an `any` value                              @typescript-eslint/no-unsafe-member-access
+  66:61  warning  Unsafe argument of type `any` assigned to a parameter of type `string`  @typescript-eslint/no-unsafe-argument
+  66:68  error    Unsafe member access .id on an `any` value                              @typescript-eslint/no-unsafe-member-access
+  70:56  error    Unsafe member access .id on an `any` value                              @typescript-eslint/no-unsafe-member-access
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\src\modules\pagamentos\pagamentos.service.ts
+    4:3   error    'NotFoundException' is defined but never used                                       @typescript-eslint/no-unused-vars
+   41:13  error    Unsafe assignment of an `any` value                                                 @typescript-eslint/no-unsafe-assignment
+   43:32  error    Unsafe member access .error on an `any` value                                       @typescript-eslint/no-unsafe-member-access
+   44:25  warning  Unsafe argument of type `any` assigned to a parameter of type `string | undefined`  @typescript-eslint/no-unsafe-argument
+   44:30  error    Unsafe member access .error on an `any` value                                       @typescript-eslint/no-unsafe-member-access
+   47:7   error    Unsafe return of a value of type `any`                                              @typescript-eslint/no-unsafe-return
+   49:52  error    Unsafe member access .message on an `any` value                                     @typescript-eslint/no-unsafe-member-access
+   69:13  error    Unsafe assignment of an `any` value                                                 @typescript-eslint/no-unsafe-assignment
+   71:32  error    Unsafe member access .error on an `any` value                                       @typescript-eslint/no-unsafe-member-access
+   73:11  warning  Unsafe argument of type `any` assigned to a parameter of type `string | undefined`  @typescript-eslint/no-unsafe-argument
+   73:16  error    Unsafe member access .error on an `any` value                                       @typescript-eslint/no-unsafe-member-access
+   77:7   error    Unsafe return of a value of type `any`                                              @typescript-eslint/no-unsafe-return
+   79:52  error    Unsafe member access .message on an `any` value                                     @typescript-eslint/no-unsafe-member-access
+   91:13  error    Unsafe assignment of an `any` value                                                 @typescript-eslint/no-unsafe-assignment
+   92:32  error    Unsafe member access .error on an `any` value                                       @typescript-eslint/no-unsafe-member-access
+   94:11  warning  Unsafe argument of type `any` assigned to a parameter of type `string | undefined`  @typescript-eslint/no-unsafe-argument
+   94:16  error    Unsafe member access .error on an `any` value                                       @typescript-eslint/no-unsafe-member-access
+   97:7   error    Unsafe return of a value of type `any`                                              @typescript-eslint/no-unsafe-return
+   99:52  error    Unsafe member access .message on an `any` value                                     @typescript-eslint/no-unsafe-member-access
+  119:11  error    Unsafe assignment of an `any` value                                                 @typescript-eslint/no-unsafe-assignment
+  124:11  error    Unsafe assignment of an `any` value                                                 @typescript-eslint/no-unsafe-assignment
+  124:34  error    Unsafe member access .data on an `any` value                                        @typescript-eslint/no-unsafe-member-access
+  134:7   error    Unsafe assignment of an `any` value                                                 @typescript-eslint/no-unsafe-assignment
+  136:7   error    Unsafe assignment of an `any` value                                                 @typescript-eslint/no-unsafe-assignment
+  136:29  error    Unsafe member access .data on an `any` value                                        @typescript-eslint/no-unsafe-member-access
+  137:7   error    Unsafe assignment of an `any` value                                                 @typescript-eslint/no-unsafe-assignment
+  137:29  error    Unsafe member access .data on an `any` value                                        @typescript-eslint/no-unsafe-member-access
+  146:7   error    Unsafe assignment of an `any` value                                                 @typescript-eslint/no-unsafe-assignment
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\src\modules\pontos\pontos.controller.spec.ts
+   62:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+   81:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+   97:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  121:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  145:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  158:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  182:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  195:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  218:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  239:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\src\modules\pontos\pontos.service.spec.ts
+  13:7  error  'pontoRepository' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  14:7  error  'rotaPontoRepository' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  15:7  error  'empresaRepository' is assigned a value but never used    @typescript-eslint/no-unused-vars
+  16:7  error  'rotaRepository' is assigned a value but never used       @typescript-eslint/no-unused-vars
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\src\modules\rotas\rotas.controller.spec.ts
+   76:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+   97:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  120:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  146:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  171:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  184:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  212:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  239:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  252:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  280:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  331:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\src\modules\rotas\rotas.controller.ts
+   87:11  error  Unsafe assignment of an `any` value  @typescript-eslint/no-unsafe-assignment
+   90:7   error  Unsafe assignment of an `any` value  @typescript-eslint/no-unsafe-assignment
+  143:11  error  Unsafe assignment of an `any` value  @typescript-eslint/no-unsafe-assignment
+  148:7   error  Unsafe assignment of an `any` value  @typescript-eslint/no-unsafe-assignment
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\src\modules\rotas\rotas.service.spec.ts
+   16:7   error  'rotaRepository' is assigned a value but never used            @typescript-eslint/no-unused-vars
+   17:7   error  'rotaPontoRepository' is assigned a value but never used       @typescript-eslint/no-unused-vars
+   18:7   error  'rotaPassageiroRepository' is assigned a value but never used  @typescript-eslint/no-unused-vars
+   19:7   error  'empresaRepository' is assigned a value but never used         @typescript-eslint/no-unused-vars
+   20:7   error  'pontoRepository' is assigned a value but never used           @typescript-eslint/no-unused-vars
+   21:7   error  'alunoRepository' is assigned a value but never used           @typescript-eslint/no-unused-vars
+   22:7   error  'empresaAlunoRepository' is assigned a value but never used    @typescript-eslint/no-unused-vars
+  221:24  error  Unsafe member access .pontos on an `any` value                 @typescript-eslint/no-unsafe-member-access
+  222:24  error  Unsafe member access .pontos on an `any` value                 @typescript-eslint/no-unsafe-member-access
+  357:13  error  Unsafe assignment of an `any` value                            @typescript-eslint/no-unsafe-assignment
+  360:21  error  Unsafe member access [0] on an `any` value                     @typescript-eslint/no-unsafe-member-access
+  543:13  error  Unsafe assignment of an `any` value                            @typescript-eslint/no-unsafe-assignment
+  545:21  error  Unsafe member access .rota on an `any` value                   @typescript-eslint/no-unsafe-member-access
+  546:21  error  Unsafe member access .pontosComPassageiros on an `any` value   @typescript-eslint/no-unsafe-member-access
+  547:21  error  Unsafe member access .totalPassageiros on an `any` value       @typescript-eslint/no-unsafe-member-access
+  564:13  error  Unsafe assignment of an `any` value                            @typescript-eslint/no-unsafe-assignment
+  566:21  error  Unsafe member access .pontosComPassageiros on an `any` value   @typescript-eslint/no-unsafe-member-access
+  567:21  error  Unsafe member access .totalPassageiros on an `any` value       @typescript-eslint/no-unsafe-member-access
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\src\modules\rotas\rotas.service.ts
+    7:22  error  'Not' is defined but never used               @typescript-eslint/no-unused-vars
+    7:27  error  'IsNull' is defined but never used            @typescript-eslint/no-unused-vars
+  124:11  error  'rota' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  238:25  error  Unsafe member access .tipo on an `any` value  @typescript-eslint/no-unsafe-member-access
+  242:7   error  Unsafe assignment of an `any` value           @typescript-eslint/no-unsafe-assignment
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\src\modules\vinculos\dtos\create-vinculo.dto.ts
+  1:25  error  'IsOptional' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\src\modules\vinculos\vinculos.controller.spec.ts
+   71:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+   88:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  103:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  113:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  123:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  138:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  151:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  164:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  181:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  196:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  206:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  221:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  234:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  251:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  268:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  285:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  302:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  322:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  342:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  360:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  374:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+  383:14  error  A method that is not declared with `this: void` may cause unintentional scoping of `this` when separated from its object.
+Consider using an arrow function or explicitly `.bind()`ing the method to avoid calling the method with an unintended `this` value. 
+If a function does not access `this`, it can be annotated with `this: void`  @typescript-eslint/unbound-method
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\src\modules\vinculos\vinculos.service.spec.ts
+   18:7  error  'empresaAlunoRepository' is assigned a value but never used        @typescript-eslint/no-unused-vars
+   19:7  error  'solicitacaoVinculoRepository' is assigned a value but never used  @typescript-eslint/no-unused-vars
+   20:7  error  'tokenAcessoRepository' is assigned a value but never used         @typescript-eslint/no-unused-vars
+   21:7  error  'empresaRepository' is assigned a value but never used             @typescript-eslint/no-unused-vars
+   22:7  error  'alunoRepository' is assigned a value but never used               @typescript-eslint/no-unused-vars
+  431:9  error  Unsafe assignment of an `any` value                                @typescript-eslint/no-unsafe-assignment
+  493:9  error  Unsafe assignment of an `any` value                                @typescript-eslint/no-unsafe-assignment
+  512:9  error  Unsafe assignment of an `any` value                                @typescript-eslint/no-unsafe-assignment
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\src\modules\vinculos\vinculos.service.ts
+   83:24  error  Unsafe member access .alunoId on an `any` value    @typescript-eslint/no-unsafe-member-access
+   84:26  error  Unsafe member access .empresaId on an `any` value  @typescript-eslint/no-unsafe-member-access
+   85:36  error  Unsafe member access .ativo on an `any` value      @typescript-eslint/no-unsafe-member-access
+   88:7   error  Unsafe assignment of an `any` value                @typescript-eslint/no-unsafe-assignment
+   99:36  error  Unsafe member access .ativo on an `any` value      @typescript-eslint/no-unsafe-member-access
+  102:7   error  Unsafe assignment of an `any` value                @typescript-eslint/no-unsafe-assignment
+  113:36  error  Unsafe member access .ativo on an `any` value      @typescript-eslint/no-unsafe-member-access
+  116:7   error  Unsafe assignment of an `any` value                @typescript-eslint/no-unsafe-assignment
+  192:26  error  Unsafe member access .idEmpresa on an `any` value  @typescript-eslint/no-unsafe-member-access
+  195:7   error  Unsafe assignment of an `any` value                @typescript-eslint/no-unsafe-assignment
+  243:67  error  Unsafe member access .message on an `any` value    @typescript-eslint/no-unsafe-member-access
+  371:26  error  Unsafe member access .idEmpresa on an `any` value  @typescript-eslint/no-unsafe-member-access
+  372:24  error  Unsafe member access .idAluno on an `any` value    @typescript-eslint/no-unsafe-member-access
+  373:23  error  Unsafe member access .status on an `any` value     @typescript-eslint/no-unsafe-member-access
+  376:7   error  Unsafe assignment of an `any` value                @typescript-eslint/no-unsafe-assignment
+  387:23  error  Unsafe member access .status on an `any` value     @typescript-eslint/no-unsafe-member-access
+  390:7   error  Unsafe assignment of an `any` value                @typescript-eslint/no-unsafe-assignment
+  401:23  error  Unsafe member access .status on an `any` value     @typescript-eslint/no-unsafe-member-access
+  404:7   error  Unsafe assignment of an `any` value                @typescript-eslint/no-unsafe-assignment
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\test\alunos.e2e-spec.ts
+   34:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   44:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+   45:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+   46:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+   47:11  error    Unsafe assignment of an `any` value                                  @typescript-eslint/no-unsafe-assignment
+   47:30  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+   52:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   63:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   76:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   80:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+   81:41  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+   88:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   92:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+   93:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+   98:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  104:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  111:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  112:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  119:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  123:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\test\auth-aluno.e2e-spec.ts
+   29:19  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   43:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   51:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+   52:27  error    Unsafe member access .response on an `any` value                     @typescript-eslint/no-unsafe-member-access
+   53:34  error    Unsafe member access .response on an `any` value                     @typescript-eslint/no-unsafe-member-access
+   58:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   68:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   78:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   87:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   94:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+   99:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  106:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  113:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\test\auth-empresa.e2e-spec.ts
+   29:19  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   44:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   52:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+   53:27  error    Unsafe member access .response on an `any` value                     @typescript-eslint/no-unsafe-member-access
+   54:34  error    Unsafe member access .response on an `any` value                     @typescript-eslint/no-unsafe-member-access
+   59:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   69:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   79:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   88:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   95:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  100:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  107:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  114:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\test\empresas.e2e-spec.ts
+   34:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   45:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+   46:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+   47:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+   48:11  error    Unsafe assignment of an `any` value                                  @typescript-eslint/no-unsafe-assignment
+   48:32  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+   53:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   66:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   79:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   94:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   98:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+   99:41  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  106:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  110:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  111:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  116:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  122:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  129:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  130:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  137:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  141:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\test\pontos.e2e-spec.ts
+   11:7   error    'rotaId' is defined but never used                                   @typescript-eslint/no-unused-vars
+   35:43  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   46:5   error    Unsafe assignment of an `any` value                                  @typescript-eslint/no-unsafe-assignment
+   46:38  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+   49:41  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   59:5   error    Unsafe assignment of an `any` value                                  @typescript-eslint/no-unsafe-assignment
+   59:36  error    Unsafe member access .response on an `any` value                     @typescript-eslint/no-unsafe-member-access
+   73:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   85:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+   86:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+   87:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+   88:11  error    Unsafe assignment of an `any` value                                  @typescript-eslint/no-unsafe-assignment
+   88:30  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+   93:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  106:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  119:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  135:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  140:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  141:41  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  142:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  147:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  153:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  158:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  159:41  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  160:24  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  161:29  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  169:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  174:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  175:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  176:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  181:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  190:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  199:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  200:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  201:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  206:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  225:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  237:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  238:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  239:11  error    Unsafe assignment of an `any` value                                  @typescript-eslint/no-unsafe-assignment
+  239:34  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  245:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  258:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  273:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  278:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  279:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  284:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  293:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  298:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  303:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  314:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  325:44  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  336:13  error    Unsafe assignment of an `any` value                                  @typescript-eslint/no-unsafe-assignment
+  336:47  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  338:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  343:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  348:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\test\rotas.e2e-spec.ts
+   41:43  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   52:5   error    Unsafe assignment of an `any` value                                  @typescript-eslint/no-unsafe-assignment
+   52:38  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+   55:41  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   64:5   error    Unsafe assignment of an `any` value                                  @typescript-eslint/no-unsafe-assignment
+   64:36  error    Unsafe member access .response on an `any` value                     @typescript-eslint/no-unsafe-member-access
+   68:42  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   80:5   error    Unsafe assignment of an `any` value                                  @typescript-eslint/no-unsafe-assignment
+   80:36  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+   82:42  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   94:5   error    Unsafe assignment of an `any` value                                  @typescript-eslint/no-unsafe-assignment
+   94:36  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  103:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  114:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  115:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  116:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  117:11  error    Unsafe assignment of an `any` value                                  @typescript-eslint/no-unsafe-assignment
+  117:29  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  122:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  134:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  146:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  161:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  166:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  167:41  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  168:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  175:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  180:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  181:41  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  188:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  193:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  194:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  195:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  200:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  209:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  217:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  218:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  223:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  235:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  245:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  246:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  247:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  248:11  error    Unsafe assignment of an `any` value                                  @typescript-eslint/no-unsafe-assignment
+  248:34  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  253:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  265:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  277:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  289:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  301:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  315:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  320:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  321:41  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  322:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  327:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  336:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  344:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  345:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  350:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  358:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  363:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  375:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  383:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  384:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  385:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  386:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  387:41  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  392:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  401:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  406:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  415:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  420:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  430:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  440:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  445:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  450:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  459:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  464:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  469:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+
+C:\Users\Pedro\projetos\unitrans\unitrans-api-nest\test\vinculos.e2e-spec.ts
+   12:10  error    'Empresa' is defined but never used                                  @typescript-eslint/no-unused-vars
+   45:43  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   56:5   error    Unsafe assignment of an `any` value                                  @typescript-eslint/no-unsafe-assignment
+   56:38  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+   59:41  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   68:5   error    Unsafe assignment of an `any` value                                  @typescript-eslint/no-unsafe-assignment
+   68:36  error    Unsafe member access .response on an `any` value                     @typescript-eslint/no-unsafe-member-access
+   75:41  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+   85:5   error    Unsafe assignment of an `any` value                                  @typescript-eslint/no-unsafe-assignment
+   85:34  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  101:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  112:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  113:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  114:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  115:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  116:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  122:21  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  133:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  146:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  159:21  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  171:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  176:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  177:41  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  178:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  183:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  188:18  error    Unsafe call of a(n) `any` typed value                                @typescript-eslint/no-unsafe-call
+  188:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  188:47  error    Unsafe member access .empresaId on an `any` value                    @typescript-eslint/no-unsafe-member-access
+  197:21  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  209:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  214:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  215:41  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  216:18  error    Unsafe call of a(n) `any` typed value                                @typescript-eslint/no-unsafe-call
+  216:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  216:47  error    Unsafe member access .alunoId on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  225:38  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  235:7   error    Unsafe assignment of an `any` value                                  @typescript-eslint/no-unsafe-assignment
+  235:33  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  239:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  244:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  249:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  260:38  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  270:7   error    Unsafe assignment of an `any` value                                  @typescript-eslint/no-unsafe-assignment
+  270:33  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  273:21  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  279:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  284:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  291:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  299:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  300:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  301:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  306:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  318:21  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  325:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  330:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  331:41  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  340:13  error    'response' is assigned a value but never used                        @typescript-eslint/no-unused-vars
+  340:38  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  351:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  356:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  371:38  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  376:7   error    Unsafe assignment of an `any` value                                  @typescript-eslint/no-unsafe-assignment
+  376:29  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  380:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  389:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  392:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  393:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  398:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  410:21  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  419:39  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  424:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  428:11  error    Unsafe assignment of an `any` value                                  @typescript-eslint/no-unsafe-assignment
+  428:33  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  437:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  446:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  449:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  450:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  456:21  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  467:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  479:21  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  488:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  501:21  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  511:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  516:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  517:41  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  518:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  523:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  529:13  error    Unsafe call of a(n) `any` typed value                                @typescript-eslint/no-unsafe-call
+  529:22  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  529:42  error    Unsafe member access .status on an `any` value                       @typescript-eslint/no-unsafe-member-access
+  539:38  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  547:7   error    Unsafe assignment of an `any` value                                  @typescript-eslint/no-unsafe-assignment
+  547:37  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  551:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  556:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  559:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  560:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  561:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  562:27  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  567:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  575:21  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  580:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  591:38  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  599:7   error    Unsafe assignment of an `any` value                                  @typescript-eslint/no-unsafe-assignment
+  599:37  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  603:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  611:27  error    Unsafe member access .message on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  616:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  625:21  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  631:22  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  642:43  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  648:13  error    Unsafe assignment of an `any` value                                  @typescript-eslint/no-unsafe-assignment
+  648:40  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  652:45  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  656:11  error    Unsafe assignment of an `any` value                                  @typescript-eslint/no-unsafe-assignment
+  661:35  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  664:46  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  669:36  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  676:49  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  685:13  error    Unsafe assignment of an `any` value                                  @typescript-eslint/no-unsafe-assignment
+  685:54  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  686:39  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  691:45  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  696:35  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  699:46  warning  Unsafe argument of type `any` assigned to a parameter of type `App`  @typescript-eslint/no-unsafe-argument
+  704:36  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+  705:36  error    Unsafe member access .data on an `any` value                         @typescript-eslint/no-unsafe-member-access
+
+✖ 548 problems (385 errors, 163 warnings)
+

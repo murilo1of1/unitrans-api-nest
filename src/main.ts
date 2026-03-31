@@ -36,4 +36,6 @@ async function bootstrap() {
   console.log(`Aplicação rodando na porta ${port}`);
   console.log(`Documentação disponível em http://localhost:${port}/docs`);
 }
-bootstrap();
+bootstrap().catch((err) => {
+  console.error('Falha ao iniciar a aplicação', err);
+});

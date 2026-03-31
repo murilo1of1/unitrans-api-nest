@@ -30,7 +30,13 @@ export class FaturaAluno {
   abacatePayId: string;
 
   // Código amigável e único para o motorista/empresa usar no suporte
-  @Column({ name: 'codigo_suporte_pagamento', type: 'varchar', length: 20, nullable: true, unique: true })
+  @Column({
+    name: 'codigo_suporte_pagamento',
+    type: 'varchar',
+    length: 20,
+    nullable: true,
+    unique: true,
+  })
   codigoSuportePagamento: string;
 
   // URL ou Código Copia e Cola para o frontend exibir se já estiver gerado

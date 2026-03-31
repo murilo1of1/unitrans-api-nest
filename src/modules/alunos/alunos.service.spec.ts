@@ -152,7 +152,10 @@ describe('AlunosService', () => {
 
       mockAlunosRepository.create.mockReturnValue(mockAlunoCreated);
       mockAlunosRepository.save.mockResolvedValue({ id: 1 });
-      mockAlunosRepository.findOne.mockResolvedValue(mockAlunoSaved);
+      mockAlunosRepository.findOne
+        .mockResolvedValueOnce(null)
+        .mockResolvedValueOnce(null)
+        .mockResolvedValueOnce(mockAlunoSaved);
 
       const result = await service.create(createDto as any);
 
@@ -170,7 +173,10 @@ describe('AlunosService', () => {
 
       mockAlunosRepository.create.mockReturnValue(mockAlunoSaved);
       mockAlunosRepository.save.mockResolvedValue({ id: 1 });
-      mockAlunosRepository.findOne.mockResolvedValue(mockAlunoSaved);
+      mockAlunosRepository.findOne
+        .mockResolvedValueOnce(null)
+        .mockResolvedValueOnce(null)
+        .mockResolvedValueOnce(mockAlunoSaved);
 
       const result = await service.create(createDto as any);
 

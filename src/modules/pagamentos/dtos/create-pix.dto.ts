@@ -7,7 +7,7 @@ export class CreatePixDto {
   @IsOptional()
   @IsString()
   description?: string;
-  
+
   @IsOptional()
   @IsObject()
   customer?: {

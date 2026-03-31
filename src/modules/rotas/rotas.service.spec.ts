@@ -40,6 +40,7 @@ describe('RotasService', () => {
   const mockRotaPassageiroRepository = {
     findOne: jest.fn(),
     save: jest.fn(),
+    find: jest.fn(),
   };
 
   const mockEmpresaRepository = {
@@ -52,6 +53,7 @@ describe('RotasService', () => {
 
   const mockAlunoRepository = {
     createQueryBuilder: jest.fn(),
+    find: jest.fn(),
   };
 
   const mockEmpresaAlunoRepository = {
@@ -537,8 +539,20 @@ describe('RotasService', () => {
         getMany: jest.fn().mockResolvedValue(mockAlunos),
       };
       mockAlunoRepository.createQueryBuilder.mockReturnValue(mockQueryBuilder);
+      mockAlunoRepository.find.mockResolvedValue(mockAlunos);
       mockRotaPassageiroRepository.findOne.mockResolvedValue(null);
       mockRotaPassageiroRepository.save.mockResolvedValue({});
+      mockRotaPassageiroRepository.find.mockResolvedValue([
+        {
+          id: 1,
+          idRota: 1,
+          idAluno: 1,
+          pontoEmbarque: 1,
+          pontoDesembarque: 2,
+          dataEscolha: new Date().toISOString(),
+          ativo: true,
+        },
+      ]);
 
       const result = await service.getPassageirosRota(getPassageirosDto);
 

@@ -1,0 +1,38 @@
+
+> api-nest@0.0.1 test
+> jest
+
+PASS src/modules/empresas/empresas.service.spec.ts (8.684 s)
+PASS src/modules/alunos/alunos.service.spec.ts (8.763 s)
+PASS src/modules/pontos/pontos.service.spec.ts (8.805 s)
+FAIL src/modules/rotas/rotas.service.spec.ts (8.863 s)
+  ● RotasService › getPassageirosRota › deve retornar passageiros agrupados por ponto
+
+    TypeError: this.alunoRepository.find is not a function
+
+    [0m [90m 287 |[39m     [36mconst[39m idsAlunosComEscolha [33m=[39m registrosDoDia[33m.[39mmap((rp) [33m=>[39m rp[33m.[39midAluno)[33m;[39m
+     [90m 288 |[39m
+    [31m[1m>[22m[39m[90m 289 |[39m     [36mconst[39m alunosComDados [33m=[39m [36mawait[39m [36mthis[39m[33m.[39malunoRepository[33m.[39mfind({
+     [90m     |[39m                                                       [31m[1m^[22m[39m
+     [90m 290 |[39m       where[33m:[39m
+     [90m 291 |[39m         idsAlunosComEscolha[33m.[39mlength [33m>[39m [35m0[39m
+     [90m 292 |[39m           [33m?[39m idsAlunosComEscolha[33m.[39mmap((id) [33m=>[39m ({ id }))[0m
+
+      at RotasService.getPassageirosRota (modules/rotas/rotas.service.ts:289:55)
+      at Object.<anonymous> (modules/rotas/rotas.service.spec.ts:555:22)
+
+PASS src/app.controller.spec.ts
+PASS src/modules/vinculos/vinculos.service.spec.ts (9.402 s)
+PASS src/modules/auth/auth.service.spec.ts (9.497 s)
+PASS src/modules/pontos/pontos.controller.spec.ts (10.459 s)
+PASS src/modules/vinculos/vinculos.controller.spec.ts (10.516 s)
+PASS src/modules/empresas/empresas.controller.spec.ts (10.523 s)
+PASS src/modules/alunos/alunos.controller.spec.ts (10.545 s)
+PASS src/modules/rotas/rotas.controller.spec.ts (10.583 s)
+PASS src/modules/auth/auth.controller.spec.ts
+
+Test Suites: 1 failed, 12 passed, 13 total
+Tests:       1 failed, 173 passed, 174 total
+Snapshots:   0 total
+Time:        12.305 s, estimated 13 s
+Ran all test suites.

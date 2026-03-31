@@ -136,7 +136,10 @@ describe('EmpresasService', () => {
 
       mockEmpresasRepository.create.mockReturnValue(mockCreatedEmpresa);
       mockEmpresasRepository.save.mockResolvedValue(mockCreatedEmpresa);
-      mockEmpresasRepository.findOne.mockResolvedValue(mockSavedEmpresa);
+      mockEmpresasRepository.findOne
+        .mockResolvedValueOnce(null)
+        .mockResolvedValueOnce(null)
+        .mockResolvedValueOnce(mockSavedEmpresa);
 
       const result = await service.create(createDto);
 

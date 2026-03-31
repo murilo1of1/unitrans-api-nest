@@ -37,6 +37,15 @@ export class EmpresasController {
     };
   }
 
+  @Get(':id/rotas')
+  async getRotasEmpresa(@Param('id') id: string) {
+    const rotas = await this.rotasService.findByEmpresa(Number(id));
+    return {
+      message: 'Rotas da empresa encontradas',
+      data: rotas,
+    };
+  }
+
   @Post()
   @HttpCode(HttpStatus.CREATED)
   async create(@Body() createEmpresaDto: CreateEmpresaDto) {

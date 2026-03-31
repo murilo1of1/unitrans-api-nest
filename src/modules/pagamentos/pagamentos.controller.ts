@@ -1,4 +1,13 @@
-import { Controller, Post, Body, Param, Req, Res, UnauthorizedException, Get } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  Param,
+  Req,
+  Res,
+  UnauthorizedException,
+  Get,
+} from '@nestjs/common';
 import type { Request, Response } from 'express';
 import { PagamentosService } from './pagamentos.service';
 import { CreatePixDto } from './dtos/create-pix.dto';
@@ -50,7 +59,9 @@ export class PagamentosController {
       // Eventos são nomeados um pouco diferente na v1 (billing.paid)
       switch (evento) {
         case 'billing.paid':
-          console.log(`Pagamento PIX/Cobrança Confirmado. ID da Cobranca: ${dados?.id}`);
+          console.log(
+            `Pagamento PIX/Cobrança Confirmado. ID da Cobranca: ${dados?.id}`,
+          );
           console.log(`Dados do Pagamento:`, dados);
           await this.pagamentosService.marcarFaturaComoPaga(dados?.id);
           break;
@@ -67,8 +78,9 @@ export class PagamentosController {
       return res.status(200).send({ success: true });
     } catch (error) {
       console.error('Erro ao processar o webhook', error);
-      return res.status(400).send({ error: 'Erro no processamento do webhook' });
+      return res
+        .status(400)
+        .send({ error: 'Erro no processamento do webhook' });
     }
   }
 }
-
